@@ -1,0 +1,42 @@
+<h1>IF DIRECIVE</h1>
+<div  *ngIf="courses.length > 0; then ListOfCourses else NoCourses">
+
+  
+</div>
+
+
+
+  <ng-template #ListOfCourses>
+   List OF COURSES
+  </ng-template>
+
+  <ng-template #NoCourses>
+    no courses
+   </ng-template>
+   <p>end of if directive</p>
+  <br>
+<br>
+   <h1>this content is for testing switchcase</h1>
+   <ul class="nav nav-pills">
+     <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'">map view</a></li>
+   <li  [class.active]="viewMode=='list'"><a  (click)="viewMode='list'">list view</a></li>
+   </ul>
+
+   <div [ngSwitch]="viewMode">
+     <div *ngSwitchCase="'map'">MAP VIEW CONTENT
+
+      
+     </div>
+     <div *ngSwitchCase="'list'">LIST VIEW CONTENT</div>
+   </div>
+   <h1>this content is for testing forloop</h1>
+
+
+   <button (click)="onbuttonclick()">list</button>
+   <button (click)="add(event)">add</button>
+   <ul>
+     <li *ngFor="let item of items; even as listeven">
+
+      {{i}}{{item.name}}<span *ngIf="listeven">(Even)</span><button (click)="remove(item)">remove</button>
+     </li>
+   </ul>

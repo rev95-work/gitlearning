@@ -1,0 +1,4 @@
+li.active :focus
+{
+background-color: blue;
+}

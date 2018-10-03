@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div ngModelGroup="contact">
+  <div class="form-group"> <label for="FirstName">firstname</label><input required pattern="revanth" minlength="2" maxlength="7" ngModel name="firstname"  #firstname="ngModel" type="text"  id="FirstName" class="form-control">
+  <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">Please enter the field</div>
+  
+  
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" ngModel name="subscribe">subscribe:</label>
+  </div>
+  <p>{{f.value | json}}</p>
+</div>
+
+<div class="form-group">
+  <label for="Contact">ContactMethod</label><select ngModel name="Contact">
+    <option *ngFor="let method of contactmethod" value="method.id">{{method.name}}</option>
+  </select>   
+</div>
+  <div class="from-group"><label for="comment">comment</label><textarea required  ngModel type="text" name='comment"' id="comment" #comment="ngModel" rows="5" columns="30" class="form-control" change="comment(comment)"></textarea><div class="alert alert-danger" *ngIf="!comment.valid && comment.touched">please enter the textarea</div></div>
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>  
+  
+    </form>
